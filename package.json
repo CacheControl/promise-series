@@ -8,9 +8,17 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "node index.test.js"
+    "test": "tap ./tests"
   },
   "dependencies": {
     "es6-promise": "^2.0.1"
-  }
+  },
+  "repository": "https://github.com/cdhamm/promise-series",
+  "devDependencies": {
+    "tap": "^0.7.1"
+  },
+  "keywords": [
+    "promises",
+    "series"
+  ]
 }
