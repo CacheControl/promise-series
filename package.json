@@ -1,5 +1,5 @@
 {
-  "name": "promise-series",
+  "name": "promise-series-node",
   "version": "0.0.1",
   "description": "Execute methods that return promises in series",
   "contributors": {
