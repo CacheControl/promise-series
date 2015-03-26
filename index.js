@@ -26,12 +26,12 @@ module.exports = function(array, haltCallback) {
       if(i >= len) return resolve(results);
 
       var method = array[i];
-      if(!(method instanceof Function)) {
+      if(typeof method !== 'function') {
         return processPromise(method);
       }
 
       var p = method();
-      if((p instanceof Promise)) {
+      if(typeof p.then === 'function' && typeof p.catch === 'function') {
         p.then(processPromise).catch(reject);
       } else {
         processPromise(p);
