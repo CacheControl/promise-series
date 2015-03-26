@@ -1,0 +1,13 @@
+{
+  "name": "PromiseSeries",
+  "version": "0.0.1",
+  "description": "Execute methods that return promises in series",
+  "contributors": {
+    "name": "Cache Hamm",
+    "email": "cdhamm@gmail.com"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.test.js"
+  }
+}
