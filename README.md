@@ -1,9 +1,9 @@
 # Promise Series
 
-Given an array of functions that return promises, execute in series.
+Execute array of methods that return promises, in series.
 
 ## Installation
-```npm install promise-series```
+```$ npm install promise-series```
 
 ## Basic Usage
 
@@ -25,8 +25,11 @@ func2 = function() {
 promiseSeries([func1, func2]).then( (results) => {
   console.log(results);
 });
-//results:
-// ['hello', 'world']
+```
+
+This will print:
+```javascript
+['hello', 'world']  //results are returned in the order they were executed
 ```
 
 ## Halt condition
@@ -56,8 +59,10 @@ promiseSeries([func1, func2, func3], function(res) {
 }).then( (data, status) => {
   console.log(results);
 });
-// results:
-// [true, false]
+```
+This will print:
+```
+[true, false]
 ```
 
 ## Non-standard inputs
@@ -71,9 +76,11 @@ promiseSeries([func1, nonPromiseFunc, func2], function(res) {
   return res === true;
 }).then( (data, status) => {
   console.log(results);
-  // results:
-  // ['hello', 'cruel', 'world']
 });
+```
+This will print:
+```
+['hello', 'cruel', 'world']
 ```
 
 If one of the inputs is not a function, the input will be returned in the results:
@@ -82,7 +89,10 @@ promiseSeries([func1, 'foo', 42, func2], function(res) {
   return res === true;
 }).then( (data, status) => {
   console.log(results);
-  // results:
-  // ['hello', 'foo', 42, 'world']
 });
+```
+
+This will print:
+```
+['hello', 'foo', 42, 'world']
 ```
