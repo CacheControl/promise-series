@@ -3,7 +3,7 @@
 Execute array of methods that return promises, in series.
 
 ## Installation
-```$ npm install promise-series```
+```$ npm install promise-series-node```
 
 ## Basic Usage
 
