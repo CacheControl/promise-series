@@ -1,6 +1,7 @@
 'use strict';
 
-var assert = require('assert');
+var Promise = require('es6-promise').Promise,
+    assert = require('assert');
 
 Array.promiseSeries = require('./index.js');
 

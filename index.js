@@ -1,5 +1,7 @@
 'use strict';
 
+var Promise = require('es6-promise').Promise;
+
 module.exports = function(array, haltCallback) {
   if(!(haltCallback instanceof Function)) {
     haltCallback = function() {
