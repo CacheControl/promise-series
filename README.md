@@ -1,4 +1,5 @@
 # Promise Series
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 
 Execute array of methods that return promises, in series.
 
@@ -64,7 +65,7 @@ This will print:
 ```javascript
 //note that func3 is not included, because func2 failed before it ran
 //also note that results include the failed result
-[true, false] 
+[true, false]
 ```
 
 ## Non-standard inputs
