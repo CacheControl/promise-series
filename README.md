@@ -9,21 +9,21 @@ Execute array of methods that return promises, in series.
 ## Basic Usage
 
 ```javascript
-var promiseSeries = require('promise-series');
+import promiseSeries from 'promise-series-node';
 
-var func1 = function() {
-  return new Promise(function(resolve, reject) {
+function func1() {
+  return new Promise((resolve, reject) => {
     resolve('hello');
   });
 };
 
-var func2 = function() {
-  return new Promise(function(resolve, reject) {
+function func2() {
+  return new Promise((resolve, reject) => {
     resolve('world');
   });
 };
 
-promiseSeries([func1, func2]).then( (results) => {
+promiseSeries([func1, func2]).then(results => {
   console.log(results);
 });
 ```
@@ -37,27 +37,26 @@ This will print:
 Optionally, you make choose to provide a callback that is run against each result.  If the test fails, the subsequent functions in the series will not be executed, and the series will resolve immediately.
 
 ```javascript
-var func1 = function() {
-  return new Promise(function(resolve, reject) {
+let func1 = function() {
+  return new Promise((resolve, reject) => {
     resolve(true);
   });
 };
 
-var func2 = function() {
-  return new Promise(function(resolve, reject) {
+let func2 = function() {
+  return new Promise((resolve, reject) => {
     resolve(false);
   });
 };
 
-var func3 = function() {
-  return new Promise(function(resolve, reject) {
+let func3 = function() {
+  return new Promise((resolve, reject) => {
     resolve(true);
   });
 };
 
-promiseSeries([func1, func2, func3], function(res) {
-  return res === true; //only promises that resolve(true) pass the test
-}).then( (data) => {
+//only promises that resolve(true) pass the test
+promiseSeries([func1, func2, func3], res => res === true).then(results => {
   console.log(results);
 });
 ```
@@ -71,11 +70,11 @@ This will print:
 ## Non-standard inputs
 If a function does not return a promise, the return value will be passed through to the results:
 ```javascript
-var nonPromiseFunc = function() {
+let nonPromiseFunc = function() {
   return 'cruel';
 };
 
-promiseSeries([func1, nonPromiseFunc, func2]).then( (data) => {
+promiseSeries([func1, nonPromiseFunc, func2]).then(results => {
   console.log(results);
 });
 ```
@@ -86,7 +85,7 @@ This will print:
 
 If one of the inputs is not a function, the input will be passed through to the results:
 ```javascript
-promiseSeries([func1, 'foo', 42, func2]).then( (data) => {
+promiseSeries([func1, 'foo', 42, func2]).then(results => {
   console.log(results);
 });
 ```
